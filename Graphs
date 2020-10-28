@@ -1,0 +1,34 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import scipy.stats as ss
+
+# example data
+sample_data = np.random.rand(10,2)*10
+df=pd.DataFrame(sample_data,columns=["a","b"])
+df.insert(loc=0,value=["dog" if x%2==0 else "cat" for x in range(df.shape[0])],column="animal")
+
+# Tornado plot
+
+fig, axes = plt.subplots(ncols=2, sharey=True)
+axes[0].barh(df.index,df["a"])
+axes[0].set(title='A')
+axes[1].barh(df.index,df["b"],color="orange")
+axes[1].set(title='B')
+axes[0].set_xlim(0,20)
+axes[1].set_xlim(0,20)
+axes[0].invert_xaxis()
+for x in range(0,2):
+    axes[x].spines['top'].set_visible(False)
+    axes[x].spines['right'].set_visible(False)
+    axes[x].spines['left'].set_visible(False)
+    axes[x].spines['bottom'].set_visible(False)
+    axes[x].grid(axis="x")
+fig.subplots_adjust(wspace=0.0)
+plt.show()
+
+# Box plot
+ax=sns.boxplot(x="a", y="animal", data=df,
+            saturation=0.8,linewidth=0.7, palette="Set2")
+plt.show()
