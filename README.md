@@ -2,24 +2,30 @@
 Useful python snippets
 
 # Test for Normality (where n>50)
-'''
+```
 from scipy.stats import kstest
 kstest(data,"norm")
-'''
+```
 # T-test
+```
 from scipy.stats import ttest_ind
 ttest_ind(df1,df2)
+```
 
 # T-Test for non-normal 
+```
 from scipy.stats import mannwhitneyu
 mannwhitneyu(df1,df2)
+```
 
 # Seaborn Boxplots
+```
 import seaborn as sns
 sns.boxplot(data=df,x="Pay",y="Year",showfliers=False)
+```
 
 # Add data labels onto subplit
-'''
+```
 fig,ax = plt.subplots()
 plt.bar(df.index,df["data"],edgecolor="r")
 plt.xticks(rotation=45)
@@ -54,4 +60,4 @@ for rect in ax.patches:
     if height > 0:
         ax.text(label_x-0.3, (label_y)+xminus, label_text, ha='center', va='center', fontsize=14,rotation=70)
 plt.show()
-'''
+```
