@@ -61,3 +61,16 @@ for rect in ax.patches:
         ax.text(label_x-0.3, (label_y)+xminus, label_text, ha='center', va='center', fontsize=14,rotation=70)
 plt.show()
 ```
+
+# Zip File
+```
+import zipfile36 as zf
+import os
+directory_str = "C:\\Users\\Test"
+os.chdir(directory_str)
+zipped_file = zf.ZipFile("TestFile.zip",mode="w")
+zipped_file.setpassword(b"TestPassword")
+zipped_file.close()
+# Write all files in current directory to zip file
+[zipped_file.write("{1}".format(directory_str,x)) for x in os.listdir() if x[-3:]=="txt"]
+```
