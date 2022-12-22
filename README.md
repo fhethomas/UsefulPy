@@ -74,3 +74,13 @@ zipped_file.close()
 # Write all files in current directory to zip file
 [zipped_file.write("{1}".format(directory_str,x)) for x in os.listdir() if x[-3:]=="txt"]
 ```
+# All Iterations
+Below creates a list of all permutations of 0-9 
+```
+import itertools
+l=[str(x) for x in range(0,10)]
+l_permutations=itertools.permutations(l)
+l_permutations=list(l_permutations)
+l_permutations = [int("".join(x)) for x in l_permutations]
+```
+
