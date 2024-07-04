@@ -1,6 +1,13 @@
 # UsefulPy
 Useful python snippets
 
+# Pandas Pivot & revert this to a regular table
+```
+piv=pd.pivot_table(data=df,index=['Year','Ethnicity'],values='Amount',aggfunc=['mean','median'])
+# reset the index - reverts the index of the pivot table to be regular columns - adds an index from 0 up
+piv.reset_index()
+```
+
 # Test for Normality (where n>50)
 ```
 from scipy.stats import kstest
