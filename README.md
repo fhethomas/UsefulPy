@@ -1,6 +1,12 @@
 # UsefulPy
 Useful python snippets
 
+# Strip grammar
+```
+import re
+re.sub(r"[^\w\s]", " ", example_text)
+```
+
 # Pandas Pivot & revert this to a regular table
 ```
 # create pivot table
